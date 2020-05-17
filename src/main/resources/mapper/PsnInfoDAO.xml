@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycy.demo.dao.PsnInfoDAO">
+  <resultMap id="BaseResultMap" type="com.ycy.demo.entity.PsnInfo">
+    <id column="PSN_NO" jdbcType="VARCHAR" property="psnNo" />
+    <result column="PSN_MGTCODE" jdbcType="VARCHAR" property="psnMgtcode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ALIS" jdbcType="VARCHAR" property="alis" />
+    <result column="GEND" jdbcType="VARCHAR" property="gend" />
+    <result column="BRDY" jdbcType="DATE" property="brdy" />
+    <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+    <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+    <result column="HSECFC_CODG" jdbcType="VARCHAR" property="hsecfcCodg" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="MOB" jdbcType="VARCHAR" property="mob" />
+    <result column="NATY" jdbcType="VARCHAR" property="naty" />
+    <result column="NAT_REGN_CODE" jdbcType="VARCHAR" property="natRegnCode" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="POLSTAS" jdbcType="VARCHAR" property="polstas" />
+    <result column="PATC_JOB_DATE" jdbcType="DATE" property="patcJobDate" />
+    <result column="RESD_NAT" jdbcType="VARCHAR" property="resdNat" />
+    <result column="RESD_LOC_ADMDVS" jdbcType="VARCHAR" property="resdLocAdmdvs" />
+    <result column="RESD_ADDR" jdbcType="VARCHAR" property="resdAddr" />
+    <result column="RESD_ADDR_POSCODE" jdbcType="VARCHAR" property="resdAddrPoscode" />
+    <result column="LIVE_ADMDVS" jdbcType="VARCHAR" property="liveAdmdvs" />
+    <result column="LIVE_ADDR" jdbcType="VARCHAR" property="liveAddr" />
+    <result column="LIVE_ADDR_POSCODE" jdbcType="VARCHAR" property="liveAddrPoscode" />
+    <result column="RESDBOOK_NO" jdbcType="VARCHAR" property="resdbookNo" />
+    <result column="MRG_STAS" jdbcType="VARCHAR" property="mrgStas" />
+    <result column="HLCON" jdbcType="VARCHAR" property="hlcon" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="SURV_STAS" jdbcType="VARCHAR" property="survStas" />
+    <result column="MUL_PROV_MNT_FLAG" jdbcType="VARCHAR" property="mulProvMntFlag" />
+    <result column="ADMDUT" jdbcType="VARCHAR" property="admdut" />
+    <result column="EMP_STAS" jdbcType="VARCHAR" property="empStas" />
+    <result column="RETR_TYPE" jdbcType="VARCHAR" property="retrType" />
+    <result column="GRAD_SCHL" jdbcType="VARCHAR" property="gradSchl" />
+    <result column="EDUC" jdbcType="VARCHAR" property="educ" />
+    <result column="PRO_TECH_DUTY_LV" jdbcType="VARCHAR" property="proTechDutyLv" />
+    <result column="NAT_PROF_QUA_LV" jdbcType="VARCHAR" property="natProfQuaLv" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="CRTER" jdbcType="VARCHAR" property="crter" />
+    <result column="CRTER_NAME" jdbcType="VARCHAR" property="crterName" />
+    <result column="CRTE_TIME" jdbcType="TIMESTAMP" property="crteTime" />
+    <result column="CRTE_OPTINS" jdbcType="VARCHAR" property="crteOptins" />
+    <result column="OPTER" jdbcType="VARCHAR" property="opter" />
+    <result column="OPTER_NAME" jdbcType="VARCHAR" property="opterName" />
+    <result column="OPT_TIME" jdbcType="TIMESTAMP" property="optTime" />
+    <result column="OPTINS" jdbcType="VARCHAR" property="optins" />
+    <result column="VER" jdbcType="VARCHAR" property="ver" />
+    <result column="COMPARE_FLAG" jdbcType="VARCHAR" property="compareFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PSN_NO, PSN_MGTCODE, `NAME`, ALIS, GEND, BRDY, CERT_TYPE, CERT_NO, HSECFC_CODG, TEL, 
+    MOB, NATY, NAT_REGN_CODE, EMAIL, POLSTAS, PATC_JOB_DATE, RESD_NAT, RESD_LOC_ADMDVS, 
+    RESD_ADDR, RESD_ADDR_POSCODE, LIVE_ADMDVS, LIVE_ADDR, LIVE_ADDR_POSCODE, RESDBOOK_NO, 
+    MRG_STAS, HLCON, MEMO, SURV_STAS, MUL_PROV_MNT_FLAG, ADMDUT, EMP_STAS, RETR_TYPE, 
+    GRAD_SCHL, EDUC, PRO_TECH_DUTY_LV, NAT_PROF_QUA_LV, RID, CRTER, CRTER_NAME, CRTE_TIME, 
+    CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, OPTINS, VER, COMPARE_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from psn_info_d
+    where PSN_NO = #{psnNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from psn_info_d
+    where PSN_NO = #{psnNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ycy.demo.entity.PsnInfo">
+    insert into psn_info_d (PSN_NO, PSN_MGTCODE, `NAME`, 
+      ALIS, GEND, BRDY, CERT_TYPE, 
+      CERT_NO, HSECFC_CODG, TEL, 
+      MOB, NATY, NAT_REGN_CODE, 
+      EMAIL, POLSTAS, PATC_JOB_DATE, 
+      RESD_NAT, RESD_LOC_ADMDVS, RESD_ADDR, 
+      RESD_ADDR_POSCODE, LIVE_ADMDVS, LIVE_ADDR, 
+      LIVE_ADDR_POSCODE, RESDBOOK_NO, MRG_STAS, 
+      HLCON, MEMO, SURV_STAS, 
+      MUL_PROV_MNT_FLAG, ADMDUT, EMP_STAS, 
+      RETR_TYPE, GRAD_SCHL, EDUC, 
+      PRO_TECH_DUTY_LV, NAT_PROF_QUA_LV, RID, 
+      CRTER, CRTER_NAME, CRTE_TIME, 
+      CRTE_OPTINS, OPTER, OPTER_NAME, 
+      OPT_TIME, OPTINS, VER, 
+      COMPARE_FLAG)
+    values (#{psnNo,jdbcType=VARCHAR}, #{psnMgtcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{alis,jdbcType=VARCHAR}, #{gend,jdbcType=VARCHAR}, #{brdy,jdbcType=DATE}, #{certType,jdbcType=VARCHAR}, 
+      #{certNo,jdbcType=VARCHAR}, #{hsecfcCodg,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{mob,jdbcType=VARCHAR}, #{naty,jdbcType=VARCHAR}, #{natRegnCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{polstas,jdbcType=VARCHAR}, #{patcJobDate,jdbcType=DATE}, 
+      #{resdNat,jdbcType=VARCHAR}, #{resdLocAdmdvs,jdbcType=VARCHAR}, #{resdAddr,jdbcType=VARCHAR}, 
+      #{resdAddrPoscode,jdbcType=VARCHAR}, #{liveAdmdvs,jdbcType=VARCHAR}, #{liveAddr,jdbcType=VARCHAR}, 
+      #{liveAddrPoscode,jdbcType=VARCHAR}, #{resdbookNo,jdbcType=VARCHAR}, #{mrgStas,jdbcType=VARCHAR}, 
+      #{hlcon,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{survStas,jdbcType=VARCHAR}, 
+      #{mulProvMntFlag,jdbcType=VARCHAR}, #{admdut,jdbcType=VARCHAR}, #{empStas,jdbcType=VARCHAR}, 
+      #{retrType,jdbcType=VARCHAR}, #{gradSchl,jdbcType=VARCHAR}, #{educ,jdbcType=VARCHAR}, 
+      #{proTechDutyLv,jdbcType=VARCHAR}, #{natProfQuaLv,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, 
+      #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, 
+      #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, 
+      #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR}, 
+      #{compareFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ycy.demo.entity.PsnInfo">
+    insert into psn_info_d
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="psnNo != null">
+        PSN_NO,
+      </if>
+      <if test="psnMgtcode != null">
+        PSN_MGTCODE,
+      </if>
+      <if test="name != null">
+        `NAME`,
+      </if>
+      <if test="alis != null">
+        ALIS,
+      </if>
+      <if test="gend != null">
+        GEND,
+      </if>
+      <if test="brdy != null">
+        BRDY,
+      </if>
+      <if test="certType != null">
+        CERT_TYPE,
+      </if>
+      <if test="certNo != null">
+        CERT_NO,
+      </if>
+      <if test="hsecfcCodg != null">
+        HSECFC_CODG,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="mob != null">
+        MOB,
+      </if>
+      <if test="naty != null">
+        NATY,
+      </if>
+      <if test="natRegnCode != null">
+        NAT_REGN_CODE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="polstas != null">
+        POLSTAS,
+      </if>
+      <if test="patcJobDate != null">
+        PATC_JOB_DATE,
+      </if>
+      <if test="resdNat != null">
+        RESD_NAT,
+      </if>
+      <if test="resdLocAdmdvs != null">
+        RESD_LOC_ADMDVS,
+      </if>
+      <if test="resdAddr != null">
+        RESD_ADDR,
+      </if>
+      <if test="resdAddrPoscode != null">
+        RESD_ADDR_POSCODE,
+      </if>
+      <if test="liveAdmdvs != null">
+        LIVE_ADMDVS,
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR,
+      </if>
+      <if test="liveAddrPoscode != null">
+        LIVE_ADDR_POSCODE,
+      </if>
+      <if test="resdbookNo != null">
+        RESDBOOK_NO,
+      </if>
+      <if test="mrgStas != null">
+        MRG_STAS,
+      </if>
+      <if test="hlcon != null">
+        HLCON,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="survStas != null">
+        SURV_STAS,
+      </if>
+      <if test="mulProvMntFlag != null">
+        MUL_PROV_MNT_FLAG,
+      </if>
+      <if test="admdut != null">
+        ADMDUT,
+      </if>
+      <if test="empStas != null">
+        EMP_STAS,
+      </if>
+      <if test="retrType != null">
+        RETR_TYPE,
+      </if>
+      <if test="gradSchl != null">
+        GRAD_SCHL,
+      </if>
+      <if test="educ != null">
+        EDUC,
+      </if>
+      <if test="proTechDutyLv != null">
+        PRO_TECH_DUTY_LV,
+      </if>
+      <if test="natProfQuaLv != null">
+        NAT_PROF_QUA_LV,
+      </if>
+      <if test="rid != null">
+        RID,
+      </if>
+      <if test="crter != null">
+        CRTER,
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME,
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME,
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS,
+      </if>
+      <if test="opter != null">
+        OPTER,
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME,
+      </if>
+      <if test="optTime != null">
+        OPT_TIME,
+      </if>
+      <if test="optins != null">
+        OPTINS,
+      </if>
+      <if test="ver != null">
+        VER,
+      </if>
+      <if test="compareFlag != null">
+        COMPARE_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="psnNo != null">
+        #{psnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="psnMgtcode != null">
+        #{psnMgtcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alis != null">
+        #{alis,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="brdy != null">
+        #{brdy,jdbcType=DATE},
+      </if>
+      <if test="certType != null">
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hsecfcCodg != null">
+        #{hsecfcCodg,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="naty != null">
+        #{naty,jdbcType=VARCHAR},
+      </if>
+      <if test="natRegnCode != null">
+        #{natRegnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="polstas != null">
+        #{polstas,jdbcType=VARCHAR},
+      </if>
+      <if test="patcJobDate != null">
+        #{patcJobDate,jdbcType=DATE},
+      </if>
+      <if test="resdNat != null">
+        #{resdNat,jdbcType=VARCHAR},
+      </if>
+      <if test="resdLocAdmdvs != null">
+        #{resdLocAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddr != null">
+        #{resdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddrPoscode != null">
+        #{resdAddrPoscode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAdmdvs != null">
+        #{liveAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddrPoscode != null">
+        #{liveAddrPoscode,jdbcType=VARCHAR},
+      </if>
+      <if test="resdbookNo != null">
+        #{resdbookNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mrgStas != null">
+        #{mrgStas,jdbcType=VARCHAR},
+      </if>
+      <if test="hlcon != null">
+        #{hlcon,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="survStas != null">
+        #{survStas,jdbcType=VARCHAR},
+      </if>
+      <if test="mulProvMntFlag != null">
+        #{mulProvMntFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="admdut != null">
+        #{admdut,jdbcType=VARCHAR},
+      </if>
+      <if test="empStas != null">
+        #{empStas,jdbcType=VARCHAR},
+      </if>
+      <if test="retrType != null">
+        #{retrType,jdbcType=VARCHAR},
+      </if>
+      <if test="gradSchl != null">
+        #{gradSchl,jdbcType=VARCHAR},
+      </if>
+      <if test="educ != null">
+        #{educ,jdbcType=VARCHAR},
+      </if>
+      <if test="proTechDutyLv != null">
+        #{proTechDutyLv,jdbcType=VARCHAR},
+      </if>
+      <if test="natProfQuaLv != null">
+        #{natProfQuaLv,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+      <if test="compareFlag != null">
+        #{compareFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ycy.demo.entity.PsnInfo">
+    update psn_info_d
+    <set>
+      <if test="psnMgtcode != null">
+        PSN_MGTCODE = #{psnMgtcode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `NAME` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alis != null">
+        ALIS = #{alis,jdbcType=VARCHAR},
+      </if>
+      <if test="gend != null">
+        GEND = #{gend,jdbcType=VARCHAR},
+      </if>
+      <if test="brdy != null">
+        BRDY = #{brdy,jdbcType=DATE},
+      </if>
+      <if test="certType != null">
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        CERT_NO = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="hsecfcCodg != null">
+        HSECFC_CODG = #{hsecfcCodg,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mob != null">
+        MOB = #{mob,jdbcType=VARCHAR},
+      </if>
+      <if test="naty != null">
+        NATY = #{naty,jdbcType=VARCHAR},
+      </if>
+      <if test="natRegnCode != null">
+        NAT_REGN_CODE = #{natRegnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="polstas != null">
+        POLSTAS = #{polstas,jdbcType=VARCHAR},
+      </if>
+      <if test="patcJobDate != null">
+        PATC_JOB_DATE = #{patcJobDate,jdbcType=DATE},
+      </if>
+      <if test="resdNat != null">
+        RESD_NAT = #{resdNat,jdbcType=VARCHAR},
+      </if>
+      <if test="resdLocAdmdvs != null">
+        RESD_LOC_ADMDVS = #{resdLocAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddr != null">
+        RESD_ADDR = #{resdAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="resdAddrPoscode != null">
+        RESD_ADDR_POSCODE = #{resdAddrPoscode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAdmdvs != null">
+        LIVE_ADMDVS = #{liveAdmdvs,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddr != null">
+        LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="liveAddrPoscode != null">
+        LIVE_ADDR_POSCODE = #{liveAddrPoscode,jdbcType=VARCHAR},
+      </if>
+      <if test="resdbookNo != null">
+        RESDBOOK_NO = #{resdbookNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mrgStas != null">
+        MRG_STAS = #{mrgStas,jdbcType=VARCHAR},
+      </if>
+      <if test="hlcon != null">
+        HLCON = #{hlcon,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="survStas != null">
+        SURV_STAS = #{survStas,jdbcType=VARCHAR},
+      </if>
+      <if test="mulProvMntFlag != null">
+        MUL_PROV_MNT_FLAG = #{mulProvMntFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="admdut != null">
+        ADMDUT = #{admdut,jdbcType=VARCHAR},
+      </if>
+      <if test="empStas != null">
+        EMP_STAS = #{empStas,jdbcType=VARCHAR},
+      </if>
+      <if test="retrType != null">
+        RETR_TYPE = #{retrType,jdbcType=VARCHAR},
+      </if>
+      <if test="gradSchl != null">
+        GRAD_SCHL = #{gradSchl,jdbcType=VARCHAR},
+      </if>
+      <if test="educ != null">
+        EDUC = #{educ,jdbcType=VARCHAR},
+      </if>
+      <if test="proTechDutyLv != null">
+        PRO_TECH_DUTY_LV = #{proTechDutyLv,jdbcType=VARCHAR},
+      </if>
+      <if test="natProfQuaLv != null">
+        NAT_PROF_QUA_LV = #{natProfQuaLv,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null">
+        RID = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="crter != null">
+        CRTER = #{crter,jdbcType=VARCHAR},
+      </if>
+      <if test="crterName != null">
+        CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      </if>
+      <if test="crteTime != null">
+        CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crteOptins != null">
+        CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      </if>
+      <if test="opter != null">
+        OPTER = #{opter,jdbcType=VARCHAR},
+      </if>
+      <if test="opterName != null">
+        OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      </if>
+      <if test="optTime != null">
+        OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="optins != null">
+        OPTINS = #{optins,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        VER = #{ver,jdbcType=VARCHAR},
+      </if>
+      <if test="compareFlag != null">
+        COMPARE_FLAG = #{compareFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PSN_NO = #{psnNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ycy.demo.entity.PsnInfo">
+    update psn_info_d
+    set PSN_MGTCODE = #{psnMgtcode,jdbcType=VARCHAR},
+      `NAME` = #{name,jdbcType=VARCHAR},
+      ALIS = #{alis,jdbcType=VARCHAR},
+      GEND = #{gend,jdbcType=VARCHAR},
+      BRDY = #{brdy,jdbcType=DATE},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      CERT_NO = #{certNo,jdbcType=VARCHAR},
+      HSECFC_CODG = #{hsecfcCodg,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      MOB = #{mob,jdbcType=VARCHAR},
+      NATY = #{naty,jdbcType=VARCHAR},
+      NAT_REGN_CODE = #{natRegnCode,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      POLSTAS = #{polstas,jdbcType=VARCHAR},
+      PATC_JOB_DATE = #{patcJobDate,jdbcType=DATE},
+      RESD_NAT = #{resdNat,jdbcType=VARCHAR},
+      RESD_LOC_ADMDVS = #{resdLocAdmdvs,jdbcType=VARCHAR},
+      RESD_ADDR = #{resdAddr,jdbcType=VARCHAR},
+      RESD_ADDR_POSCODE = #{resdAddrPoscode,jdbcType=VARCHAR},
+      LIVE_ADMDVS = #{liveAdmdvs,jdbcType=VARCHAR},
+      LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+      LIVE_ADDR_POSCODE = #{liveAddrPoscode,jdbcType=VARCHAR},
+      RESDBOOK_NO = #{resdbookNo,jdbcType=VARCHAR},
+      MRG_STAS = #{mrgStas,jdbcType=VARCHAR},
+      HLCON = #{hlcon,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      SURV_STAS = #{survStas,jdbcType=VARCHAR},
+      MUL_PROV_MNT_FLAG = #{mulProvMntFlag,jdbcType=VARCHAR},
+      ADMDUT = #{admdut,jdbcType=VARCHAR},
+      EMP_STAS = #{empStas,jdbcType=VARCHAR},
+      RETR_TYPE = #{retrType,jdbcType=VARCHAR},
+      GRAD_SCHL = #{gradSchl,jdbcType=VARCHAR},
+      EDUC = #{educ,jdbcType=VARCHAR},
+      PRO_TECH_DUTY_LV = #{proTechDutyLv,jdbcType=VARCHAR},
+      NAT_PROF_QUA_LV = #{natProfQuaLv,jdbcType=VARCHAR},
+      RID = #{rid,jdbcType=VARCHAR},
+      CRTER = #{crter,jdbcType=VARCHAR},
+      CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+      CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+      CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+      OPTER = #{opter,jdbcType=VARCHAR},
+      OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+      OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+      OPTINS = #{optins,jdbcType=VARCHAR},
+      VER = #{ver,jdbcType=VARCHAR},
+      COMPARE_FLAG = #{compareFlag,jdbcType=VARCHAR}
+    where PSN_NO = #{psnNo,jdbcType=VARCHAR}
+  </update>
+</mapper>
